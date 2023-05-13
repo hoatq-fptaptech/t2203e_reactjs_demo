@@ -22,13 +22,13 @@ class Home extends React.Component{
                     products.map((e,k)=>{
                     return (
                         <div key={k} className='col-3'>
-                        <div class="card">
-                            <img src={e.thumbnail} class="card-img-top" alt="..." />
-                            <div class="card-body">
-                            <h5 class="card-title">{e.title}</h5>
-                            <p class="card-text">{e.description}</p>
+                        <div className="card">
+                            <img src={e.thumbnail} className="card-img-top" alt="..." />
+                            <div className="card-body">
+                            <h5 className="card-title">{e.title}</h5>
+                            <p className="card-text">{e.description}</p>
                             <span className='text-danger'>{e.price}</span>
-                            <a href="#" class="btn btn-primary">Buy</a>
+                            <a href="#" className="btn btn-primary">Buy</a>
                             </div>
                         </div>
                         </div>
