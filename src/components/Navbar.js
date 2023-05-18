@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import UserContext from "../store/context";
 function Navbar(){
+    const {cart} = useContext(UserContext);
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary mb-3 mt-3">
             <div className="container">
@@ -14,7 +16,7 @@ function Navbar(){
                     <NavLink className={({isActive})=>isActive?"nav-link page-active":"nav-link" } to="/">Home</NavLink>
                     </li>
                     <li className="nav-item">
-                    <NavLink className={({isActive})=> isActive?"nav-link page-active":"nav-link"} to="/cart">Cart</NavLink>
+                    <NavLink className={({isActive})=> isActive?"nav-link page-active":"nav-link"} to="/cart">Cart ({cart.length})</NavLink>
                     </li>
                     <li className="nav-item dropdown">
                     <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

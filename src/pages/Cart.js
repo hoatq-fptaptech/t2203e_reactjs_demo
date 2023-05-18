@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { get4P } from "../services/product.service";
+import UserContext from "../store/context";
 
 function Cart(props){
     const [products,setProducts] = useState([]);
-    const getProducts = async ()=>{
-        const rs = await get4P();
-        setProducts(rs);
+    const {cart,setCart} = useContext(UserContext);
+    const getProducts = ()=>{
+        console.log(cart);
+        setProducts(cart);
     }
     useEffect(()=>{
 
@@ -36,8 +38,8 @@ function Cart(props){
                                         <td><img src={e.thumbnail} width={120} className="img-thumbnail"/></td>    
                                         <td>{e.title}</td>    
                                         <td>{e.price}</td>    
-                                        <td>{1}</td>    
-                                        <td>{e.price * 1}</td>    
+                                        <td>{e.buy_qty}</td>    
+                                        <td>{e.price * e.buy_qty}</td>    
                                     </tr>
                                     )
                             })

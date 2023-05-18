@@ -6,9 +6,10 @@ import Navbar from './components/Navbar';
 import Product from './pages/Product';
 import  { UserProvider } from './store/context';
 function App(){
-  const [count,setCount] = useState(0);
+  const localCart = localStorage.getItem("cart")?JSON.parse(localStorage.getItem("cart")):[];
+  const [cart,setCart] = useState(localCart);
   return (
-    <UserProvider value={{count,setCount}}>
+    <UserProvider value={{cart,setCart}}>
     <div className="App">
         <Navbar/>
         <Routes>
