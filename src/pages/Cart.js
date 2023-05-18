@@ -6,7 +6,6 @@ function Cart(props){
     const [products,setProducts] = useState([]);
     const {cart,setCart} = useContext(UserContext);
     const getProducts = ()=>{
-        console.log(cart);
         setProducts(cart);
     }
     useEffect(()=>{
