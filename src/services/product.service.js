@@ -10,6 +10,24 @@ export const get = async ()=>{
     }
 }
 
+export const get4P = async ()=>{
+    try {
+        const url = "products?limit=4";
+        const rs = await api.get(url);
+        return rs.data.products;
+    } catch (error) {
+        return [];
+    }
+}
+export const find = async (id)=>{
+    try {
+        const url = "products/"+id;
+        const rs = await api.get(url);
+        return rs.data;
+    } catch (error) {
+        return {};
+    }
+}
 export const post = async (product)=>{
     // post product
 }
