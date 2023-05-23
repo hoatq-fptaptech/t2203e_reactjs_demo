@@ -9,8 +9,10 @@ const Product = (props)=>{
     const {id} = useParams();
     const {state,dispatch} = useContext(UserContext);
     const findProduct = async ()=>{
+        dispatch({type:"SHOW_LOADING"});
         const p = await find(id);
         setProduct(p);
+        dispatch({type:"HIDE_LOADING"});
     }
     useEffect(()=>{
         findProduct();
@@ -32,7 +34,9 @@ const Product = (props)=>{
             localStorage.setItem("state",JSON.stringify(state));
             // setCart(cart);
             dispatch({type:"UPDATE_CART",payload:state.cart});
-            alert("Đã thêm sản phẩm vào giỏ hàng");
+            setTimeout(()=>{
+                dispatch({type:"HIDE_LOADING"});
+            },1000);
        }
     }
     return (

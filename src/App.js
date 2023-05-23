@@ -11,9 +11,23 @@ function App(){
   const localState = localStorage.getItem("state")?JSON.parse(localStorage.getItem("state")):INIT_STATE;
   // const [cart,setCart] = useState(localCart);
   const [state,dispatch] = useReducer(reducer,localState);
+  const styles = {
+    backgroundImage:"url(https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif?20151024034921)",
+    width:"100%",
+    height:"100%",
+    position:"fixed",
+    top:0,
+    left:0,
+    backgroundColor:"#000000",
+    opacity:0.8,
+    zIndex:100,
+    backgroundRepeat:"no-repeat",
+    backgroundPosition:"center center",
+    display: state.isLoading?"block":"none"
+  }
   return (
     <UserProvider value={{state,dispatch}}>
-      <div id='loading' style={{display:"none"}}></div>
+      <div id='loading' style={styles}></div>
     <div className="App">
         <Navbar/>
         <Routes>
