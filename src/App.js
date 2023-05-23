@@ -1,15 +1,19 @@
-import React, { useState } from 'react';
+import React, { useReducer, useState } from 'react';
 import { Routes,Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Cart from './pages/Cart';
 import Navbar from './components/Navbar';
 import Product from './pages/Product';
+import INIT_STATE from './store/initState';
 import  { UserProvider } from './store/context';
+import reducer from './store/reducer';
 function App(){
-  const localCart = localStorage.getItem("cart")?JSON.parse(localStorage.getItem("cart")):[];
-  const [cart,setCart] = useState(localCart);
+  const localState = localStorage.getItem("state")?JSON.parse(localStorage.getItem("state")):INIT_STATE;
+  // const [cart,setCart] = useState(localCart);
+  const [state,dispatch] = useReducer(reducer,localState);
   return (
-    <UserProvider value={{cart,setCart}}>
+    <UserProvider value={{state,dispatch}}>
+      <div id='loading' style={{display:"none"}}></div>
     <div className="App">
         <Navbar/>
         <Routes>

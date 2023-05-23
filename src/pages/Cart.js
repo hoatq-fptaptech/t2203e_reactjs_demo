@@ -4,15 +4,15 @@ import UserContext from "../store/context";
 
 function Cart(props){
     const [products,setProducts] = useState([]);
-    const {cart,setCart} = useContext(UserContext);
-    const getProducts = ()=>{
-        setProducts(cart);
-    }
+    const {state,dispatch} = useContext(UserContext);
+    // const getProducts = ()=>{
+    //     setProducts(cart);
+    // }
     useEffect(()=>{
 
     }); // component did update
     useEffect(()=>{
-        getProducts();
+        // getProducts();
     },[]); // component did mount
     useEffect(()=>{
 
@@ -31,7 +31,7 @@ function Cart(props){
                     </thead>
                     <tbody>
                         {
-                            products.map((e,k)=>{
+                            state.cart.map((e,k)=>{
                                 return (
                                     <tr key={k}>
                                         <td><img src={e.thumbnail} width={120} className="img-thumbnail"/></td>    
