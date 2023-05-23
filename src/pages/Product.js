@@ -29,7 +29,7 @@ const Product = (props)=>{
                 product.buy_qty = buyQty;
                 state.cart.push(product);
             }
-            localStorage.setItem("cart",JSON.stringify(state.cart));
+            localStorage.setItem("state",JSON.stringify(state));
             // setCart(cart);
             dispatch({type:"UPDATE_CART",payload:state.cart});
             alert("Đã thêm sản phẩm vào giỏ hàng");
