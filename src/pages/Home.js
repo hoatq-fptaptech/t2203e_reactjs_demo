@@ -10,10 +10,20 @@ function Home(props){
   useEffect(()=>{
     getProducts();
   },[])
+
   return (
       <section>
           <div className='container'>
-              <h1>Danh sách sản phẩm</h1>
+            <div className='row'>
+                <div className='col-3'>
+                    <h2>Danh mục sản phẩm</h2>
+                    <ul>
+                        <li>Watch</li>
+                        <li>Fashion</li>
+                    </ul>
+                </div>
+                <div className='col'>
+                <h1>Danh sách sản phẩm</h1>
               <div className='row'>
               {
                   products.map((e,k)=>{
@@ -33,6 +43,9 @@ function Home(props){
                   })
               }
               </div>
+                </div>
+            </div>
+              
           </div>
       </section>
   );
