@@ -30,4 +30,6 @@ export const find = async (id)=>{
 }
 export const post = async (product)=>{
     // post product
+    //api.post("/login",{email:"...",password:"..."});
+    // api.defaults.headers.common["Authorization"] = "Bearer ....";
 }

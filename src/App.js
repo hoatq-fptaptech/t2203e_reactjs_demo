@@ -7,6 +7,8 @@ import Product from './pages/Product';
 import INIT_STATE from './store/initState';
 import  { UserProvider } from './store/context';
 import reducer from './store/reducer';
+import Login from './pages/Login';
+import Profile from './pages/Profile';
 function App(){
   const localState = localStorage.getItem("state")?JSON.parse(localStorage.getItem("state")):INIT_STATE;
   // const [cart,setCart] = useState(localCart);
@@ -34,6 +36,8 @@ function App(){
             <Route path='/' element={<Home/>}/>
             <Route path='/cart' element={<Cart/>}/>
             <Route path='/product/:id' element={<Product/>}/>
+            <Route path='/login' element={<Login/>}/>
+            <Route path='/profile' element={<Profile/>}/>
         </Routes>
     </div>
     </UserProvider>

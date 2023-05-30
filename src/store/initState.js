@@ -1,6 +1,7 @@
 const INIT_STATE = {
     cart: [],
     favourites:[],
-    isLoading:false
+    isLoading:false,
+    token:null
 }
 export default INIT_STATE;
